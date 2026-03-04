@@ -883,7 +883,7 @@
           <li>Presentación virtual ante DIAN</li>
           <li>1 mes de soporte post-presentación</li>
         </ul>
-        <a href="#" class="store-btn store-btn-outline" onclick="showSection('contacto')">Solicitar</a>
+        <a href="#" class="store-btn store-btn-outline">Solicitar</a>
       </div>
     </div>
 
@@ -903,7 +903,7 @@
           <li>Estados financieros mensuales</li>
           <li>Asesoría tributaria ilimitada</li>
         </ul>
-        <a href="#" class="store-btn" onclick="showSection('contacto')">Solicitar Ahora</a>
+        <a href="#" class="store-btn" >Solicitar Ahora</a>
       </div>
     </div>
 
@@ -921,7 +921,7 @@
           <li>Presentación virtual DIAN</li>
           <li>Correcciones sin costo adicional</li>
         </ul>
-        <a href="#" class="store-btn store-btn-outline" onclick="showSection('contacto')">Solicitar</a>
+        <a href="#" class="store-btn store-btn-outline">Solicitar</a>
       </div>
     </div>
 
@@ -940,7 +940,7 @@
           <li>Auditoría de estados financieros</li>
           <li>Contador dedicado exclusivo</li>
         </ul>
-        <a href="#" class="store-btn" onclick="showSection('contacto')">Cotizar</a>
+        <a href="#" class="store-btn" >Cotizar</a>
       </div>
     </div>
 
@@ -1024,7 +1024,7 @@
         <label class="form-label">Mensaje</label>
         <textarea class="form-textarea" placeholder="Cuéntenos brevemente sobre su situación o consulta..."></textarea>
       </div>
-      <button class="form-submit" onclick="sendForm()">Enviar Mensaje →</button>
+      <button class="form-submit" >Enviar Mensaje →</button>
     </div>
   </div>
 </section>
@@ -1033,7 +1033,7 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <a class="logo" href="#" onclick="showSection('inicio')">
+      <a class="logo" href="#" >
         <div class="logo-icon">H</div>
         <div class="logo-text">Hola<span>Contable</span></div>
       </a>
@@ -1042,19 +1042,19 @@
     <div class="footer-col">
       <div class="footer-col-title">Servicios</div>
       <ul>
-        <li><a href="#" onclick="showSection('servicios')">Declaración de Renta</a></li>
-        <li><a href="#" onclick="showSection('servicios')">Información Exógena</a></li>
-        <li><a href="#" onclick="showSection('servicios')">IVA y Retenciones</a></li>
-        <li><a href="#" onclick="showSection('servicios')">Contabilidad</a></li>
-        <li><a href="#" onclick="showSection('servicios')">Revisoría Fiscal</a></li>
+        <li><a href="#">Declaración de Renta</a></li>
+        <li><a href="#" >Información Exógena</a></li>
+        <li><a href="#" >IVA y Retenciones</a></li>
+        <li><a href="#" >Contabilidad</a></li>
+        <li><a href="#" >Revisoría Fiscal</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Empresa</div>
       <ul>
-        <li><a href="#" onclick="showSection('quienes')">Quiénes Somos</a></li>
-        <li><a href="#" onclick="showSection('tienda')">Planes y Precios</a></li>
-        <li><a href="#" onclick="showSection('contacto')">Contacto</a></li>
+        <li><a href="#" >Quiénes Somos</a></li>
+        <li><a href="#" >Planes y Precios</a></li>
+        <li><a href="#" >Contacto</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1078,69 +1078,6 @@
 
 <div class="toast" id="toast">✓ Mensaje enviado. Le contactaremos pronto.</div>
 
-<script>
-  // ── SECTION NAVIGATION ──
-  const sections = ['inicio','servicios','quienes','tienda','contacto'];
-  let current = 'inicio';
 
-  function showSection(id, pushState = true) {
-    // hide current
-    const prev = document.getElementById(current);
-    if (prev) {
-      prev.classList.remove('visible');
-      setTimeout(() => { prev.style.display = 'none'; }, 400);
-    }
-    // update nav active
-    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-    const navLink = document.getElementById('nav-' + id);
-    if (navLink) navLink.classList.add('active');
-
-    // show new
-    current = id;
-    const next = document.getElementById(id);
-    next.style.display = 'block';
-    // trigger reflow
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        next.classList.add('visible');
-      });
-    });
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // close mobile menu
-    document.getElementById('navLinks').classList.remove('open');
-    return false;
-  }
-
-  // ── INIT ──
-  window.addEventListener('DOMContentLoaded', () => {
-    const hash = location.hash.replace('#','') || 'inicio';
-    const s = sections.includes(hash) ? hash : 'inicio';
-    const el = document.getElementById(s);
-    el.style.display = 'block';
-    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('visible')));
-    current = s;
-    const nl = document.getElementById('nav-' + s);
-    if (nl) { document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active')); nl.classList.add('active'); }
-  });
-
-  // ── SCROLL NAV ──
-  window.addEventListener('scroll', () => {
-    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
-  });
-
-  // ── HAMBURGER ──
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('open');
-  }
-
-  // ── FORM SUBMIT ──
-  function sendForm() {
-    const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 3500);
-  }
-</script>
 </body>
 </html>
