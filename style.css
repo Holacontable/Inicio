@@ -1,0 +1,82 @@
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f4f4;
+}
+
+header{
+    background:#000;
+    color:white;
+    padding:15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    width:200px;
+    height:60px;
+    background:#ccc;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#333;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ff0000;
+}
+
+.hero{
+    background:#111;
+    color:white;
+    padding:80px;
+    text-align:center;
+}
+
+.container{
+    padding:40px;
+}
+
+.services{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-left:5px solid red;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+footer{
+    background:#000;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* BOTON WHATSAPP */
+
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    font-size:30px;
+    padding:15px 18px;
+    border-radius:50%;
+    text-decoration:none;
+    box-shadow:0 3px 8px rgba(0,0,0,0.3);
+}
